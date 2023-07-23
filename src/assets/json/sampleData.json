@@ -1,0 +1,114 @@
+{
+  "shoppingData": [
+    {
+      "id": 1,
+      "name": "Sabun Molto",
+      "review": 1045,
+      "star": 4,
+      "stock": 913,
+      "img": "molto.png",
+      "price": 12000,
+      "discPrice": 10000,
+      "discount": false
+    },
+    {
+      "id": 2,
+      "name": "Sabun Lifebuoy",
+      "review": 2143,
+      "star": 4,
+      "stock": 702,
+      "img": "lifebuoy.png",
+      "price": 4000,
+      "discPrice": 3800,
+      "discount": false
+    },
+    {
+      "id": 3,
+      "name": "Sabun Dettol",
+      "review": 452,
+      "star": 4,
+      "stock": 887,
+      "img": "dettol.png",
+      "price": 15000,
+      "discPrice": 13500,
+      "discount": false
+    },
+    {
+      "id": 4,
+      "name": "Sabun Ekonomi",
+      "review": 2048,
+      "star": 5,
+      "stock": 1002,
+      "img": "ekonomi.png",
+      "price": 2000,
+      "discPrice": 1800,
+      "discount": true
+    },
+    {
+      "id": 5,
+      "name": "Sabun Daia",
+      "review": 479,
+      "star": 3,
+      "stock": 472,
+      "img": "daia.png",
+      "price": 15000,
+      "discPrice": 14000,
+      "discount": false
+    },
+    {
+      "id": 6,
+      "name": "Sabun Sunlight",
+      "review": 2319,
+      "star": 5,
+      "stock": 1982,
+      "img": "sunlight.png",
+      "price": 19000,
+      "discPrice": 17500,
+      "discount": true
+    },
+    {
+      "id": 7,
+      "name": "Sabun Shinzui",
+      "review": 289,
+      "star": 4,
+      "stock": 554,
+      "img": "shinzui.png",
+      "price": 23000,
+      "discPrice": 21000,
+      "discount": false
+    },
+    {
+      "id": 8,
+      "name": "Sabun Zwitsal",
+      "review": 219,
+      "star": 4,
+      "stock": 617,
+      "img": "zwitsal.png",
+      "price": 25000,
+      "discPrice": 23500,
+      "discount": true
+    },
+    {
+      "id": 9,
+      "name": "Sabun Biore",
+      "review": 776,
+      "star": 3,
+      "stock": 233,
+      "img": "biore.png",
+      "price": 18000,
+      "discPrice": 16000,
+      "discount": false
+    },
+    {
+      "id": 10,
+      "name": "Sabun Giv",
+      "review": 232,
+      "star": 4,
+      "stock": 323,
+      "img": "giv.png",
+      "price": 14000,
+      "discPrice": 13500,
+      "discount": true
+    }
+  ]
+}
