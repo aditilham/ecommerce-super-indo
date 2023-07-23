@@ -10,11 +10,15 @@
           <option v-for="sortLst in sortList" :key="sortLst.id" :selected="selectSort == sortLst.id" :value="sortLst.id"> {{ sortLst.name }}</option>
         </select>
       </div>
-      <div class="grid lg:grid-cols-4 md:grid-cols-1 gap-x-5 gap-y-10 px-5 md:px-10 py-10">
+      <div class="hidden lg:grid lg:grid-cols-4 md:grid-cols-1 gap-x-5 gap-y-10 px-5 md:px-10 py-10">
         <div v-for="list in productsData" :key="list" class="w-full flex gap-2 p-2 md:p-4 relative rounded-lg h-auto">
           <card-product :list="list" />
         </div>
-
+      </div>
+      <div class="grid lg:hidden grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-2 px-5 md:px-10 py-10">
+        <div v-for="list in productsData" :key="list" class="w-full flex gap-2 p-2 md:p-4 relative rounded-lg h-auto">
+          <card-product :list="list" />
+        </div>
       </div>
     </div>
   </div>
