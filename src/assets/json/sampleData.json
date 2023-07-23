@@ -6,7 +6,7 @@
       "review": 1045,
       "star": 4,
       "stock": 913,
-      "img": "molto.png",
+      "img": "molto.jpeg",
       "price": 12000,
       "discPrice": 10000,
       "discount": false
@@ -17,7 +17,7 @@
       "review": 2143,
       "star": 4,
       "stock": 702,
-      "img": "lifebuoy.png",
+      "img": "lifebuoy.jpeg",
       "price": 4000,
       "discPrice": 3800,
       "discount": false
@@ -28,7 +28,7 @@
       "review": 452,
       "star": 4,
       "stock": 887,
-      "img": "dettol.png",
+      "img": "dettol.jpeg",
       "price": 15000,
       "discPrice": 13500,
       "discount": false
@@ -38,8 +38,8 @@
       "name": "Sabun Ekonomi",
       "review": 2048,
       "star": 5,
-      "stock": 1002,
-      "img": "ekonomi.png",
+      "stock": 0,
+      "img": "ekonomi.jpeg",
       "price": 2000,
       "discPrice": 1800,
       "discount": true
@@ -50,7 +50,7 @@
       "review": 479,
       "star": 3,
       "stock": 472,
-      "img": "daia.png",
+      "img": "daia.jpeg",
       "price": 15000,
       "discPrice": 14000,
       "discount": false
@@ -61,7 +61,7 @@
       "review": 2319,
       "star": 5,
       "stock": 1982,
-      "img": "sunlight.png",
+      "img": "sunlight.jpeg",
       "price": 19000,
       "discPrice": 17500,
       "discount": true
@@ -72,7 +72,7 @@
       "review": 289,
       "star": 4,
       "stock": 554,
-      "img": "shinzui.png",
+      "img": "shinzui.jpeg",
       "price": 23000,
       "discPrice": 21000,
       "discount": false
@@ -83,7 +83,7 @@
       "review": 219,
       "star": 4,
       "stock": 617,
-      "img": "zwitsal.png",
+      "img": "zwitsal.jpeg",
       "price": 25000,
       "discPrice": 23500,
       "discount": true
@@ -94,7 +94,7 @@
       "review": 776,
       "star": 3,
       "stock": 233,
-      "img": "biore.png",
+      "img": "biore.jpeg",
       "price": 18000,
       "discPrice": 16000,
       "discount": false
@@ -105,10 +105,50 @@
       "review": 232,
       "star": 4,
       "stock": 323,
-      "img": "giv.png",
+      "img": "giv.jpeg",
       "price": 14000,
       "discPrice": 13500,
       "discount": true
+    },
+    {
+      "id": 11,
+      "name": "Sabun Lux",
+      "review": 111,
+      "star": 3,
+      "stock": 222,
+      "img": "lux.jpeg",
+      "price": 10000,
+      "discPrice": 9000,
+      "discount": true
+    },
+    {
+      "id": 11,
+      "name": "Sabun Nuvo",
+      "review": 222,
+      "star": 3,
+      "stock": 444,
+      "img": "lux.jpeg",
+      "price": 12000,
+      "discPrice": 11500,
+      "discount": true
+    }
+  ],
+  "sortList": [
+    {
+      "id": 1,
+      "name": "Lowest Price"
+    },
+    {
+      "id": 2,
+      "name": "Highest Price"
+    },
+    {
+      "id": 3,
+      "name": "Ascending"
+    },
+    {
+      "id": 4,
+      "name": "Descending"
     }
   ]
 }
