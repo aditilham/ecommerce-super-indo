@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import MainPage from '../pages/MainPage/MainPage.vue'
+import MainPage from '../pages/MainPage/MainPage.vue';
+import MyCart from '../pages/MyCart/MyCart.vue';
 
 
 const routes = [
@@ -12,7 +13,7 @@ const routes = [
   {
     path: "/my-cart",
     name: "MyCart",
-    // component: MyCart
+    component: MyCart
   },
   {
     path: '/:catchAll(.*)',
