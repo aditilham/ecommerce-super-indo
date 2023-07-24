@@ -1,5 +1,6 @@
 import { createStore } from "vuex";
 import UserCart from "../plugins/userCart.js";
+import masterData from "../assets/json/sampleData.json";
 
 export default new createStore({
   state() {
@@ -12,9 +13,6 @@ export default new createStore({
     getUserCart(state) {
       return state.userCart;
     },
-    // getCounter(state) {
-    //   return state.counter;
-    // },
   },
   mutations: {
     setListProduct(state, payload) {
@@ -23,9 +21,12 @@ export default new createStore({
     setUserCart(state, payload) {
       state.userCart = payload;
     },
-    // increment(state, payload) {
-    //   state.counter = state.counter + payload;
-    // },
+    deleteUserCart(state) {
+      state.userCart = [];
+    },
+    deleteProductList(state) {
+      state.productList = null;
+    },
   },
   actions: {
     checkUserCart(context) {
@@ -67,9 +68,29 @@ export default new createStore({
         if (!found) {
           tempData.push(payload);
         }
-        context.commit('setUserCart', tempData);
+        context.commit("setUserCart", tempData);
         localStorage.setItem("userCart", window.btoa(JSON.stringify(tempData)));
       }
     },
+    changeUserCart(context, payload) {
+      context.commit("setUserCart", payload);
+      localStorage.setItem("userCart", window.btoa(JSON.stringify(payload)));
+    },
+
+    async deleteAll(context) {
+      localStorage.removeItem("userCart");
+      localStorage.removeItem("esiProduct");
+      context.commit("deleteUserCart");
+      context.commit("deleteProductList");
+    },
+    setNewProductLists(context, payload) {
+      const newData = masterData.shoppingData.map(item => {
+        const matchingItem = payload.find(bItem => bItem.id === item.id);
+        return matchingItem ? {...item, ...matchingItem} : item;
+      });
+      localStorage.setItem("esiProduct", window.btoa(JSON.stringify(newData)));
+      context.commit("setListProduct", newData);
+
+    }
   },
 });
