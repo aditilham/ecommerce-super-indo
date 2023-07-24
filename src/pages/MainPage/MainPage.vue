@@ -40,32 +40,19 @@
         </div>
         <div class="w-7/12 flex flex-col items-start justify-between">
           <div class="w-full flex flex-col items-start justify-start space-y-2">
-            <div class="flex space-x-1">
-              <icon-yellow-star v-for="star in choosenProduct.star" :key="star" />
-              <icon-gray-star v-for="n in 5 - choosenProduct.star" :key="n" />
-            </div>
-            <p class="text-xs font-thin">
-              <span class="font-semibold">
-                {{ choosenProduct.review }}
-              </span>
-              Reviews
-            </p>
-            <p class="text-xs font-thin">
-              Stock :
-              <span class="font-semibold">
-                {{ tempStock }}
-              </span>
-            </p>
+            <star-component :stars="choosenProduct.star" />
+            <text-reviews :text="choosenProduct.review" />
+            <text-stock :text="tempStock" />
             <input-counter color="#D7130A" @click="setInputItems()"
               :disableButtonMinus="this.buttonStatus.minus"
               :disableButtonPlus="this.buttonStatus.plus"
               @minusValue="this.inputItems--; this.tempStock++"
               @plusValue="this.inputItems++; this.tempStock--"
-              v-model="inputItems" title="Add Items" label="Max. 20 Items" />
+              v-model="inputItems" title="Add Items"  />
             <div class="flex space-y-1"
               :class="choosenProduct.discount ? `flex-col` : `flex-col-reverse`">
               <p
-                :class="choosenProduct.discount ? `font-thin text-xs line-through text-primary-color text-left` : `text-lg font-semibold`">
+                :class="choosenProduct.discount ? `font-thin text-xs line-through text-primary-color` : `text-lg font-semibold`">
                 Rp {{ $filters.rupiahFormat(choosenProduct.price) }}
               </p>
               <text-large-semibold v-if="choosenProduct.discount"
@@ -86,8 +73,9 @@
     </Modal>
     <Modal v-if="this.modalAdded" title="Successfully Add to Cart"
       @toggle-modal="toggleModalAdded">
-      <div class="flex p-5">
-        Success
+      <div class="p-5">
+        <add-to-cart class="w-48 h-48 m-auto" />
+        <button-primary @click="toggleModalAdded" text="Done" />
       </div>
     </Modal>
     <Sheet  height="90%" v-model:visible="modalMobile"
@@ -102,32 +90,19 @@
         <div class="w-full flex flex-col items-start justify-between">
           <div class="w-full flex flex-col items-start justify-start space-y-2">
             <text-small-semibold class="block lg:hidden text-ellipsis" :text="choosenProduct.name" />
-            <div class="flex space-x-1">
-              <icon-yellow-star v-for="star in choosenProduct.star" :key="star" />
-              <icon-gray-star v-for="n in 5 - choosenProduct.star" :key="n" />
-            </div>
-            <p class="text-xs font-thin">
-              <span class="font-semibold">
-                {{ choosenProduct.review }}
-              </span>
-              Reviews
-            </p>
-            <p class="text-xs font-thin">
-              Stock :
-              <span class="font-semibold">
-                {{ tempStock }}
-              </span>
-            </p>
+            <star-component :stars="choosenProduct.star" />
+            <text-reviews :text="choosenProduct.review" />
+            <text-stock :text="tempStock" />
             <input-counter color="#D7130A" @click="setInputItems()"
               :disableButtonMinus="this.buttonStatus.minus"
               :disableButtonPlus="this.buttonStatus.plus"
               @minusValue="this.inputItems--; this.tempStock++"
               @plusValue="this.inputItems++; this.tempStock--"
-              v-model="inputItems" title="Add Items" label="Max. 20 Items" />
+              v-model="inputItems" title="Add Items"  />
             <div class="flex space-y-1"
               :class="choosenProduct.discount ? `flex-col` : `flex-col-reverse`">
               <p
-                :class="choosenProduct.discount ? `font-thin text-xs line-through text-primary-color text-left` : `text-lg font-semibold`">
+                :class="choosenProduct.discount ? `font-thin text-xs line-through text-primary-color` : `text-lg font-semibold`">
                 Rp {{ $filters.rupiahFormat(choosenProduct.price) }}
               </p>
               <text-large-semibold v-if="choosenProduct.discount"
@@ -159,13 +134,17 @@ import masterData from '@/assets/json/sampleData.json'
 import HeaderComponent from '@/components/Header/Header.vue';
 import CardProduct from '@/components/Card/CardProduct.vue';
 import Modal from '@/components/Modal/Modal.vue';
-import IconYellowStar from '@/components/Icons/IconYellowStar.vue';
-import IconGrayStar from '@/components/Icons/IconGrayStar.vue';
 import InputCounter from '@/components/Input/InputCounter.vue';
 import ButtonAddtoCart from '@/components/Button/ButtonAddtoCart.vue';
 import TextLargeSemibold from '@/components/Text/TextLargeSemibold.vue';
+import AddToCart from '@/components/Lottie/AddToCart.vue';
+import StarComponent from '@/components/Star/StarComponent.vue';
+import TextReviews from '@/components/Text/TextReviews.vue';
+import TextStock from '@/components/Text/TextStock.vue';
+import TextSmallSemibold from '@/components/Text/TextSmallSemibold.vue';
+import ButtonPrimary from '@/components/Button/ButtonPrimary.vue';
 export default {
-  components: { HeaderComponent, Sheet, CardProduct, Modal, IconYellowStar, IconGrayStar, InputCounter, ButtonAddtoCart, TextLargeSemibold },
+  components: { HeaderComponent, Sheet, CardProduct, Modal, InputCounter, ButtonAddtoCart, TextLargeSemibold, AddToCart, StarComponent, TextReviews, TextStock, TextSmallSemibold, ButtonPrimary },
   name: "MainPage",
   setup() {
     const store = useStore();
@@ -205,22 +184,16 @@ export default {
 
     function toggleModal() {
       modal.value = false;
-      choosenProduct.value = null;
-      tempStock.value = null;
-      inputItems.value = 0;
     }
 
     function toggleModalMobile() {
       modalMobile.value = false;
-      setTimeout(() => {
-        choosenProduct.value = null;
-        tempStock.value = null;
-        inputItems.value = 0;
-      }, 1000);
     }
 
     function toggleModalAdded() {
       modalAdded.value = false;
+      choosenProduct.value = null;
+      tempStock.value = null;
       inputItems.value = 0;
     }
 
@@ -237,7 +210,7 @@ export default {
     }
 
     function setInputItems() {
-      if (inputItems.value == 20) {
+      if (tempStock.value == 0) {
         buttonStatus.value.minus = true;
         buttonStatus.value.plus = false;
       } else if (inputItems.value == 0) {

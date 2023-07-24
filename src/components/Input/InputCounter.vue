@@ -55,8 +55,7 @@ export default {
       required: true,
     },
     label: {
-      type: String,
-      required: true,
+      type: String
     },
     color: String,
     modelValue: Number,
