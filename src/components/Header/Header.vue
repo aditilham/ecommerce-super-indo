@@ -4,7 +4,7 @@
       <div class="flex flex-row justify-between items-center px-5 md:px-10 py-3 h-full">
         <div class="flex lg:flex flex-row justify-between items-center w-full px-1 lg:px-5">
           <div class="lg:w-full md:w-full relative">
-            <img class="w-14 h-14" src="../../assets/img/logo-superindo.webp" alt="">
+            <img @click="goToHome()" class="w-14 h-14 cursor-pointer" src="../../assets/img/logo-superindo.webp" alt="">
           </div>
           <div class="lg:w-full md:w-full relative flex justify-end">
             <div class="cursor-pointer" @click="goToCart()">
@@ -50,10 +50,15 @@ export default {
       router.push({ name: "MyCart" });
     }
 
+    function goToHome() {
+      router.push({ name: "MainPage" })
+    }
+
     return {
       isCartNotEmpty,
       myCartData,
-      goToCart
+      goToCart,
+      goToHome
     }
   }
 }

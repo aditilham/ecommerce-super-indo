@@ -7,7 +7,7 @@ const setUserCart = () => {
       localStorage.getItem("userCart") != null ||
       localStorage.getItem("userCart") != `undefined`)
   ) {
-    userCart = JSON.parse(localStorage.getItem("userCart"));
+    userCart = JSON.parse(window.atob(localStorage.getItem("userCart")));
     return userCart;
   } else {
     userCart = null

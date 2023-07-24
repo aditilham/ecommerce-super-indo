@@ -4,12 +4,12 @@ const setProductData = () => {
   let exampleDatas = exampleData.shoppingData
 
   if (
-    localStorage.getItem("productList") &&
-    (localStorage.getItem("productList") != {} ||
-      localStorage.getItem("productList") != null ||
-      localStorage.getItem("productList") != `undefined`)
+    localStorage.getItem("esiProduct") &&
+    (localStorage.getItem("esiProduct") != {} ||
+      localStorage.getItem("esiProduct") != null ||
+      localStorage.getItem("esiProduct") != `undefined`)
   ) {
-    productList = JSON.parse(localStorage.getItem("productList"));
+    productList = JSON.parse(window.atob(localStorage.getItem("esiProduct")));
     return productList;
   } else {
     productList = exampleDatas

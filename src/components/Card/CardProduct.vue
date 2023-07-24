@@ -4,7 +4,7 @@
       <img class="m-auto w-[110px] lg:w-[100px] h-[110px] lg:h-[100px] object-contain" :src="require('@/assets/img/' + list.img)" alt="">
     </div>
     <div class="flex flex-col space-y-1 items-start px-1 lg:px-5 pb-2 lg:pb-5">
-      <text-small-semibold class="block lg:hidden text-ellipsis" :text="list.name" />
+      <text-small-semibold class="block lg:hidden" :text="list.name" />
       <text-large-semibold class="hidden lg:block" :text="list.name" />
       <div class="flex space-x-1">
         <icon-yellow-star v-for="star in list.star" :key="star" />
